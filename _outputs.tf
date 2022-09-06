@@ -1,3 +1,11 @@
+output "s3_origin_bucket_id" {
+  value = module.cdn.s3_bucket
+}
+
+output "s3_origin_bucket_arn" {
+  value = module.cdn.s3_bucket_arn
+}
+
 output "cloudfront_domain_name" {
   value = module.cdn.cf_domain_name
 }

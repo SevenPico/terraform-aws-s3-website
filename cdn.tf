@@ -1,6 +1,6 @@
 module "cdn" {
   source  = "cloudposse/cloudfront-s3-cdn/aws"
-  version = "0.82.4"
+  version = "0.82.2"
   context = module.context.self
 
   acm_certificate_arn                       = var.acm_certificate_arn
@@ -67,9 +67,9 @@ module "cdn" {
   redirect_all_requests_to                  = ""
   response_headers_policy_id                = ""
   routing_rules                             = ""
-  s3_access_log_bucket_name                 = ""
-  s3_access_logging_enabled                 = null
-  s3_access_log_prefix                      = ""
+  s3_access_log_bucket_name                 = var.s3_access_log_storage_bucket_id
+  s3_access_logging_enabled                 = true
+  s3_access_log_prefix                      = "${data.aws_caller_identity.current[0].account_id}/${module.context.id}/"
   s3_object_ownership                       = "ObjectWriter"
   s3_origins                                = []
   s3_website_password_enabled               = false
