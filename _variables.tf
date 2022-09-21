@@ -69,3 +69,7 @@ variable "dns_alias_enabled" {
   default     = false
   description = "Create a DNS alias for the CDN. Requires `parent_zone_id` or `parent_zone_name`"
 }
+ variable tls_protocol_version {
+   type    = string
+   default = "TLSv1.2_2021"
+ }

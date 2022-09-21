@@ -50,7 +50,7 @@ module "cdn" {
   log_standard_transition_days              = 30
   log_versioning_enabled                    = false
   max_ttl                                   = 31536000
-  minimum_protocol_version                  = "TLSv1.2_2019"
+  minimum_protocol_version                  = var.tls_protocol_version
   min_ttl                                   = 0
   ordered_cache                             = []
   origin_bucket                             = null
