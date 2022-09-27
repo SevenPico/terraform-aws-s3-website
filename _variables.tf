@@ -85,3 +85,9 @@ variable "geo_restriction_locations" {
   default     = []
   description = "List of country codes for which  CloudFront either to distribute content (whitelist) or not distribute your content (blacklist)"
 }
+
+variable "s3_object_ownership" {
+  type        = string
+  default     = "BucketOwnerEnforced"
+  description = "Specifies the S3 object ownership control on the origin bucket. Valid values are `ObjectWriter`, `BucketOwnerPreferred`, and 'BucketOwnerEnforced'."
+}
