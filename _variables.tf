@@ -1,5 +1,5 @@
 variable "waf_enabled" {
-  type = bool
+  type    = bool
   default = false
 }
 
@@ -69,7 +69,19 @@ variable "dns_alias_enabled" {
   default     = false
   description = "Create a DNS alias for the CDN. Requires `parent_zone_id` or `parent_zone_name`"
 }
- variable tls_protocol_version {
-   type    = string
-   default = "TLSv1.2_2021"
- }
+variable "tls_protocol_version" {
+  type    = string
+  default = "TLSv1.2_2021"
+}
+
+variable "geo_restriction_type" {
+  type        = string
+  default     = "none"
+  description = "Method that use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`"
+}
+
+variable "geo_restriction_locations" {
+  type        = list(string)
+  default     = []
+  description = "List of country codes for which  CloudFront either to distribute content (whitelist) or not distribute your content (blacklist)"
+}
