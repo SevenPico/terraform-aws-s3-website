@@ -80,7 +80,7 @@ variable "geo_restriction_type" {
   description = "Method that use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`"
 }
 
-variable "geo_restriction_locations" {
+variable "geo_restricted_blacklist" {
   type        = list(string)
   default     = []
   description = "List of country codes for which  CloudFront either to distribute content (whitelist) or not distribute your content (blacklist)"
