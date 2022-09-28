@@ -88,6 +88,6 @@ variable "geo_restriction_locations" {
 
 variable "s3_object_ownership" {
   type        = string
-  default     = "BucketOwnerEnforced"
+  default     = "BucketOwnerPreferred"
   description = "Specifies the S3 object ownership control on the origin bucket. Valid values are `ObjectWriter`, `BucketOwnerPreferred`, and 'BucketOwnerEnforced'."
 }
