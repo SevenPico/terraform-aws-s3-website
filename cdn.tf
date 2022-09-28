@@ -41,8 +41,8 @@ module "cdn" {
   forward_header_values                     = ["Access-Control-Request-Headers", "Access-Control-Request-Method", "Origin"]
   forward_query_string                      = false
   function_association                      = []
-  geo_restriction_locations                 = []
-  geo_restriction_type                      = "none"
+  geo_restriction_locations                 = var.geo_restriction_locations
+  geo_restriction_type                      = var.geo_restriction_type
   ipv6_enabled                              = true
   lambda_function_association               = []
   log_expiration_days                       = 90
@@ -69,8 +69,8 @@ module "cdn" {
   routing_rules                             = ""
   s3_access_log_bucket_name                 = var.s3_access_log_storage_bucket_id
   s3_access_logging_enabled                 = true
-  s3_access_log_prefix                      = "${data.aws_caller_identity.current.account_id}/${module.context.id}/"
-  s3_object_ownership                       = "ObjectWriter"
+  s3_access_log_prefix                      = "${data.aws_caller_identity.current[0].account_id}/${module.context.id}/"
+  s3_object_ownership                       = var.s3_object_ownership
   s3_origins                                = []
   s3_website_password_enabled               = false
   trusted_key_groups                        = []
