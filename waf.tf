@@ -2,8 +2,8 @@
 # WAF
 # -----------------------------------------------------------------------------
 module "waf_context" {
-  source     = "registry.terraform.io/cloudposse/label/null"
-  version    = "0.25.0"
+  source  = "app.terraform.io/SevenPico/context/null"
+  version = "1.0.2" # requires Terraform >= 0.13.0
   context    = module.context.self
   enabled    = module.context.enabled && var.waf_enabled
   attributes = ["waf"]
