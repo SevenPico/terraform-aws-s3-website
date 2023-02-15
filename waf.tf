@@ -2,14 +2,14 @@
 # WAF
 # -----------------------------------------------------------------------------
 module "waf_context" {
-  source  = "app.terraform.io/SevenPico/context/null"
-  version = "1.0.2" # requires Terraform >= 0.13.0
+  source  = "SevenPico/context/null"
+  version = "2.0.0" # requires Terraform >= 0.13.0
   context    = module.context.self
   enabled    = module.context.enabled && var.waf_enabled
   attributes = ["waf"]
 }
 
-# FIXME - fork and rework this trussworks module
+# FIXME ??
 module "waf" {
   count = module.waf_context.enabled ? 1 : 0
 
