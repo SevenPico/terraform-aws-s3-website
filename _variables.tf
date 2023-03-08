@@ -58,6 +58,11 @@ variable "cloudfront_access_logging_enabled" {
   default = false
 }
 
+variable "s3_access_logging_enabled" {
+  type = bool
+  default = true
+}
+
 variable "cloudfront_access_log_storage_bucket_id" {
   type    = string
   default = ""
