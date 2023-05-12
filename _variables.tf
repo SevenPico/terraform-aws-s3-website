@@ -117,3 +117,18 @@ variable "s3_object_ownership" {
   default     = "BucketOwnerEnforced"
   description = "Specifies the S3 object ownership control on the origin bucket. Valid values are `ObjectWriter`, `BucketOwnerPreferred`, and 'BucketOwnerEnforced'."
 }
+
+variable "cloudfront_function_association" {
+  type = list(any)
+  default = []
+  description = <<-EOT
+  List of objects representing CloudFront function associations.
+  Syntax:-
+    list(object({
+        event_type   = string
+        function_arn = string
+  }))
+  event_type: the type of event that triggers the function. Valid values are "viewer-request", "viewer-response", "origin-request" and "origin-response".
+  function_arn: the ARN of the CloudFront function.
+  EOT
+}

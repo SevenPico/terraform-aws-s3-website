@@ -61,7 +61,7 @@ module "cdn" {
   forward_cookies                           = "none"
   forward_header_values                     = ["Access-Control-Request-Headers", "Access-Control-Request-Method", "Origin"]
   forward_query_string                      = false
-  function_association                      = []
+  function_association                      = var.cloudfront_function_association
   geo_restriction_locations                 = var.geo_restriction_locations
   geo_restriction_type                      = var.geo_restriction_type
   ipv6_enabled                              = true
