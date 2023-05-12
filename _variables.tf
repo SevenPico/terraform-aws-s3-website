@@ -117,3 +117,8 @@ variable "s3_object_ownership" {
   default     = "BucketOwnerEnforced"
   description = "Specifies the S3 object ownership control on the origin bucket. Valid values are `ObjectWriter`, `BucketOwnerPreferred`, and 'BucketOwnerEnforced'."
 }
+
+variable "cloudfront_function_association" {
+  type = list(string)
+  default = []
+}
