@@ -119,7 +119,7 @@ variable "s3_object_ownership" {
 }
 
 variable "cloudfront_function_association" {
-  type = list(string)
+  type = list(object)
   default = []
   description = <<-EOT
   list(object({
