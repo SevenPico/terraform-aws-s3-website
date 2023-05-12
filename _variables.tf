@@ -123,6 +123,10 @@ variable "cloudfront_function_association" {
     event_type   = string
     function_arn = string
   }))
+  default = [{
+    event_type = ""
+    function_arn = ""
+  }]
   description = <<-EOT
   List of objects representing CloudFront function associations.
 
