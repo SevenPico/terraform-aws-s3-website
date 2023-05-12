@@ -119,8 +119,8 @@ variable "s3_object_ownership" {
 }
 
 variable "cloudfront_function_association" {
-  type = any
-#  default = []
+  type = list(any)
+  default = []
   description = <<-EOT
   List of objects representing CloudFront function associations.
 
