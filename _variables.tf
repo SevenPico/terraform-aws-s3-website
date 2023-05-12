@@ -123,7 +123,11 @@ variable "cloudfront_function_association" {
   default = []
   description = <<-EOT
   List of objects representing CloudFront function associations.
-
+  Syntax:-
+    list(object({
+        event_type   = string
+        function_arn = string
+  }))
   event_type: the type of event that triggers the function. Valid values are "Viewer Request" and "Viewer Response".
   function_arn: the ARN of the CloudFront function.
   EOT
