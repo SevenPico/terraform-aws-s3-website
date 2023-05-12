@@ -121,4 +121,13 @@ variable "s3_object_ownership" {
 variable "cloudfront_function_association" {
   type = list(string)
   default = []
+  description = <<-EOT
+  list(object({
+    event_type   = string
+    function_arn = string
+  }))
+    A config block that triggers a CloudFront function with specific actions.
+    See the [aws_cloudfront_distribution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#function-association)
+    documentation for more information.
+  EOT
 }
