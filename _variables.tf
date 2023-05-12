@@ -125,7 +125,7 @@ variable "cloudfront_function_association" {
   List of objects representing CloudFront function associations.
   Syntax:-
     list(object({
-        event_type   = string 
+        event_type   = string
         function_arn = string
   }))
   event_type: the type of event that triggers the function. Valid values are "viewer-request", "viewer-response", "origin-request" and "origin-response".
