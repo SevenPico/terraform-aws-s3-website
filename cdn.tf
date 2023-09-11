@@ -22,7 +22,7 @@
 module "cdn" {
   source  = "cloudposse/cloudfront-s3-cdn/aws"
   version = "0.82.2"
-  context = module.context.legacy
+  context = module.context.self
 
   acm_certificate_arn                       = var.acm_certificate_arn
   additional_bucket_policy                  = "{}"
