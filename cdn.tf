@@ -35,7 +35,7 @@ module "cdn" {
   cloudfront_access_log_create_bucket       = false
   cloudfront_access_logging_enabled         = var.cloudfront_access_logging_enabled
   cloudfront_access_log_include_cookies     = false
-  cloudfront_access_log_prefix              = var.cloudfront_access_log_prefix
+  cloudfront_access_log_prefix              = ""
   cloudfront_origin_access_identity_iam_arn = ""
   cloudfront_origin_access_identity_path    = ""
   comment                                   = "Managed by Terraform"
@@ -90,7 +90,7 @@ module "cdn" {
   routing_rules                             = ""
   s3_access_log_bucket_name                 = var.s3_access_log_storage_bucket_id
   s3_access_logging_enabled                 = var.s3_access_logging_enabled
-  s3_access_log_prefix                      = var.s3_access_log_prefix
+  s3_access_log_prefix                      = "${data.aws_caller_identity.current.account_id}/${module.context.id}/"
   s3_object_ownership                       = var.s3_object_ownership
   s3_origins                                = []
   s3_website_password_enabled               = false
