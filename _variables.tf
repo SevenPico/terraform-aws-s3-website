@@ -68,6 +68,16 @@ variable "cloudfront_access_log_storage_bucket_id" {
   default = ""
 }
 
+variable "cloudfront_access_log_prefix" {
+  type    = string
+  default = ""
+}
+
+variable "s3_access_log_prefix" {
+  type    = string
+  default = ""
+}
+
 variable "cors_allowed_origins" {
   type    = list(string)
   default = []
