@@ -20,8 +20,9 @@
 ## ----------------------------------------------------------------------------
 
 module "cdn" {
-  source  = "cloudposse/cloudfront-s3-cdn/aws"
-  version = "0.82.2"
+  source = "git::https://github.com/SevenPico/terraform-aws-s3-website.git?ref=hotfix/2.0.5"
+#  source  = "cloudposse/cloudfront-s3-cdn/aws"
+#  version = "0.82.2"
   context = module.context.self
 
   acm_certificate_arn                       = var.acm_certificate_arn
