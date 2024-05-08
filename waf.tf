@@ -23,8 +23,8 @@
 # WAF
 # -----------------------------------------------------------------------------
 module "waf_context" {
-  source  = "SevenPico/context/null"
-  version = "2.0.0" # requires Terraform >= 0.13.0
+  source     = "SevenPico/context/null"
+  version    = "2.0.0" # requires Terraform >= 0.13.0
   context    = module.context.self
   enabled    = module.context.enabled && var.waf_enabled
   attributes = ["waf"]
