@@ -59,7 +59,7 @@ variable "cloudfront_access_logging_enabled" {
 }
 
 variable "s3_access_logging_enabled" {
-  type = bool
+  type    = bool
   default = true
 }
 
@@ -129,8 +129,8 @@ variable "s3_object_ownership" {
 }
 
 variable "cloudfront_function_association" {
-  type = list(any)
-  default = []
+  type        = list(any)
+  default     = []
   description = <<-EOT
   List of objects representing CloudFront function associations.
   Syntax:-
@@ -141,4 +141,10 @@ variable "cloudfront_function_association" {
   event_type: the type of event that triggers the function. Valid values are "viewer-request", "viewer-response", "origin-request" and "origin-response".
   function_arn: the ARN of the CloudFront function.
   EOT
+}
+
+variable "response_headers_policy_id" {
+  type        = string
+  default     = ""
+  description = "Provide a CloudFront response headers policy id."
 }

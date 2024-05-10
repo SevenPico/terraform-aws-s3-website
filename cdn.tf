@@ -86,7 +86,7 @@ module "cdn" {
   price_class                               = "PriceClass_100"
   query_string_cache_keys                   = []
   redirect_all_requests_to                  = ""
-  response_headers_policy_id                = ""
+  response_headers_policy_id                = var.response_headers_policy_id
   routing_rules                             = ""
   s3_access_log_bucket_name                 = var.s3_access_log_storage_bucket_id
   s3_access_logging_enabled                 = var.s3_access_logging_enabled
