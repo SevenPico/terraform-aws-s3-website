@@ -99,6 +99,6 @@ module "cdn" {
   versioning_enabled                        = true
   viewer_protocol_policy                    = "redirect-to-https"
   wait_for_deployment                       = true
-  web_acl_id                                = module.waf_context.enabled ? module.waf[0].web_acl_id : ""
+  web_acl_id                                = ""
   website_enabled                           = false
 }
