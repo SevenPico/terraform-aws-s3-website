@@ -153,3 +153,8 @@ variable "ip_sets_rule" {
   type = list(any)
   default = []
 }
+
+variable "managed_rules" {
+  type = list(any)
+  default = []
+}

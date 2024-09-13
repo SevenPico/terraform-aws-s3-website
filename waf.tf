@@ -59,7 +59,7 @@ module "waf" {
   ip_rate_url_based_rules = []
   ip_sets_rule            = var.ip_sets_rule
 
-  managed_rules = [
+  managed_rules = concat(var.managed_rules,[
     {
       excluded_rules : [],
       name : "AWSManagedRulesCommonRuleSet",
@@ -102,6 +102,6 @@ module "waf" {
       override_action : "none",
       priority : 70
     },
-  ]
+  ])
   scope = "CLOUDFRONT"
 }
