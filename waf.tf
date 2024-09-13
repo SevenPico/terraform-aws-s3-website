@@ -57,7 +57,7 @@ module "waf" {
     action   = "block"
   }
   ip_rate_url_based_rules = []
-  ip_sets_rule            = []
+  ip_sets_rule            = var.ip_sets_rule
 
   managed_rules = [
     {
