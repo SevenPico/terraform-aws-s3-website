@@ -149,11 +149,6 @@ variable "response_headers_policy_id" {
   description = "Provide a CloudFront response headers policy id."
 }
 
-variable "ip_sets_rule" {
-  type = list(any)
-  default = []
-}
-
 variable "managed_rules" {
   type = list(any)
   default = []
