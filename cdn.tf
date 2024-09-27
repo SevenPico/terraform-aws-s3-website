@@ -80,7 +80,7 @@ module "cdn" {
   origin_path                               = ""
   origin_request_policy_id                  = null
   origin_ssl_protocols                      = ["TLSv1.2"]
-  override_origin_bucket_policy             = true
+  override_origin_bucket_policy             = false
   parent_zone_id                            = var.parent_zone_id
   parent_zone_name                          = var.parent_zone_name
   price_class                               = "PriceClass_100"
