@@ -34,8 +34,9 @@ module "waf_context" {
 module "waf" {
   count = module.waf_context.enabled ? 1 : 0
 
-  source  = "registry.terraform.io/trussworks/wafv2/aws"
-  version = "4.0.0"
+  #  source  = "registry.terraform.io/trussworks/wafv2/aws"
+  #  version = "4.0.0"
+  source = "git::https://github.com/SevenPico/terraform-aws-wafv2.git?ref=develop"
 
   name = module.waf_context.enabled ? module.waf_context.id : "NA"
   tags = module.waf_context.enabled ? module.waf_context.tags : {}
@@ -48,6 +49,7 @@ module "waf" {
     "header_types" : [],
     "header_value" : "",
     "priority" : 1
+    search_string : ""
   }
   group_rules = []
   ip_rate_based_rule = {
@@ -58,51 +60,51 @@ module "waf" {
   }
   ip_rate_url_based_rules = []
   ip_sets_rule            = []
-  managed_rules = var.managed_rules
+  managed_rules           = var.managed_rules
 
-#  managed_rules = [
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesCommonRuleSet",
-#      override_action : "none",
-#      priority : 10
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesAmazonIpReputationList",
-#      override_action : "none",
-#      priority : 20
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesKnownBadInputsRuleSet",
-#      override_action : "none",
-#      priority : 30
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesSQLiRuleSet",
-#      override_action : "none",
-#      priority : 40
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesLinuxRuleSet",
-#      override_action : "none",
-#      priority : 50
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesUnixRuleSet",
-#      override_action : "none",
-#      priority : 60
-#    },
-#    {
-#      excluded_rules : [],
-#      name : "AWSManagedRulesAnonymousIpList",
-#      override_action : "none",
-#      priority : 70
-#    },
-#  ]
+  #  managed_rules = [
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesCommonRuleSet",
+  #      override_action : "none",
+  #      priority : 10
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesAmazonIpReputationList",
+  #      override_action : "none",
+  #      priority : 20
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesKnownBadInputsRuleSet",
+  #      override_action : "none",
+  #      priority : 30
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesSQLiRuleSet",
+  #      override_action : "none",
+  #      priority : 40
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesLinuxRuleSet",
+  #      override_action : "none",
+  #      priority : 50
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesUnixRuleSet",
+  #      override_action : "none",
+  #      priority : 60
+  #    },
+  #    {
+  #      excluded_rules : [],
+  #      name : "AWSManagedRulesAnonymousIpList",
+  #      override_action : "none",
+  #      priority : 70
+  #    },
+  #  ]
   scope = "CLOUDFRONT"
 }

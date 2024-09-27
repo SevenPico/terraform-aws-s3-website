@@ -150,6 +150,63 @@ variable "response_headers_policy_id" {
 }
 
 variable "managed_rules" {
-  type = list(any)
-  default = []
+  type = list(object({
+    name            = string
+    priority        = number
+    override_action = string
+    vendor_name     = string
+    version         = optional(string)
+    rule_action_override = list(object({
+      name          = string
+      action_to_use = string
+    }))
+    scope_down_statement = optional(object({
+      ip_set_arn = string
+    }))
+  }))
+  description = "List of Managed WAF rules."
+  default = [
+    {
+      name                 = "AWSManagedRulesCommonRuleSet",
+      priority             = 10
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    },
+    {
+      name                 = "AWSManagedRulesAmazonIpReputationList",
+      priority             = 20
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    },
+    {
+      name                 = "AWSManagedRulesKnownBadInputsRuleSet",
+      priority             = 30
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    },
+    {
+      name                 = "AWSManagedRulesSQLiRuleSet",
+      priority             = 40
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    },
+    {
+      name                 = "AWSManagedRulesLinuxRuleSet",
+      priority             = 50
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    },
+    {
+      name                 = "AWSManagedRulesUnixRuleSet",
+      priority             = 60
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+    }
+  ]
 }
