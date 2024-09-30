@@ -160,9 +160,10 @@ variable "managed_rules" {
       name          = string
       action_to_use = string
     }))
-    scope_down_statement = optional(object({
+    scope_down_statement = list(object({
       ip_set_arn = string
     }))
+    action = optional(string)
   }))
   description = "List of Managed WAF rules."
   default = [
@@ -172,6 +173,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     },
     {
       name                 = "AWSManagedRulesAmazonIpReputationList",
@@ -179,6 +181,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     },
     {
       name                 = "AWSManagedRulesKnownBadInputsRuleSet",
@@ -186,6 +189,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     },
     {
       name                 = "AWSManagedRulesSQLiRuleSet",
@@ -193,6 +197,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     },
     {
       name                 = "AWSManagedRulesLinuxRuleSet",
@@ -200,6 +205,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     },
     {
       name                 = "AWSManagedRulesUnixRuleSet",
@@ -207,6 +213,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
+      scope_down_statement = []
     }
   ]
 }
