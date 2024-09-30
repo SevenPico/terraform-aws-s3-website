@@ -96,7 +96,7 @@ module "cdn" {
   s3_website_password_enabled               = false
   trusted_key_groups                        = []
   trusted_signers                           = []
-  versioning_enabled                        = true
+  bucket_versioning                         = "ENABLED"
   viewer_protocol_policy                    = "redirect-to-https"
   wait_for_deployment                       = true
   web_acl_id                                = module.waf_context.enabled ? module.waf[0].web_acl_id : ""

@@ -61,50 +61,5 @@ module "waf" {
   ip_rate_url_based_rules = []
   ip_sets_rule            = []
   managed_rules           = var.managed_rules
-
-  #  managed_rules = [
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesCommonRuleSet",
-  #      override_action : "none",
-  #      priority : 10
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesAmazonIpReputationList",
-  #      override_action : "none",
-  #      priority : 20
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesKnownBadInputsRuleSet",
-  #      override_action : "none",
-  #      priority : 30
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesSQLiRuleSet",
-  #      override_action : "none",
-  #      priority : 40
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesLinuxRuleSet",
-  #      override_action : "none",
-  #      priority : 50
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesUnixRuleSet",
-  #      override_action : "none",
-  #      priority : 60
-  #    },
-  #    {
-  #      excluded_rules : [],
-  #      name : "AWSManagedRulesAnonymousIpList",
-  #      override_action : "none",
-  #      priority : 70
-  #    },
-  #  ]
   scope = "CLOUDFRONT"
 }
