@@ -156,11 +156,11 @@ variable "managed_rules" {
     override_action = string
     vendor_name     = string
     version         = optional(string)
-    rule_action_override = list(object({
+    rule_action_override = optional(list(object({
       name          = string
       action_to_use = string
-    }))
-    scope_down_statement = list(object({
+    })))
+    scope_down_statement = optional(object({
       ip_set_arn = string
     }))
     action = optional(string)
@@ -173,7 +173,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     },
     {
       name                 = "AWSManagedRulesAmazonIpReputationList",
@@ -181,7 +181,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     },
     {
       name                 = "AWSManagedRulesKnownBadInputsRuleSet",
@@ -189,7 +189,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     },
     {
       name                 = "AWSManagedRulesSQLiRuleSet",
@@ -197,7 +197,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     },
     {
       name                 = "AWSManagedRulesLinuxRuleSet",
@@ -205,7 +205,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     },
     {
       name                 = "AWSManagedRulesUnixRuleSet",
@@ -213,7 +213,7 @@ variable "managed_rules" {
       override_action      = "none"
       vendor_name          = "AWS"
       rule_action_override = []
-      scope_down_statement = []
+      scope_down_statement = null
     }
   ]
 }
