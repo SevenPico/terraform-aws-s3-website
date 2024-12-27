@@ -36,7 +36,7 @@ module "waf" {
 
   #  source  = "registry.terraform.io/trussworks/wafv2/aws"
   #  version = "4.0.0"
-  source = "git::https://github.com/SevenPico/terraform-aws-wafv2.git?ref=feature/scope_down_statement"
+  source = "git::https://github.com/SevenPico/terraform-aws-wafv2.git?ref=1.0.0"
 
   name = module.waf_context.enabled ? module.waf_context.id : "NA"
   tags = module.waf_context.enabled ? module.waf_context.tags : {}
