@@ -21,7 +21,7 @@
 
 module "cdn" {
   source  = "cloudposse/cloudfront-s3-cdn/aws"
-  version = "0.82.2"
+  version = "0.95.0"
   context = module.context.self
 
   acm_certificate_arn                       = var.acm_certificate_arn
@@ -80,7 +80,7 @@ module "cdn" {
   origin_path                               = ""
   origin_request_policy_id                  = null
   origin_ssl_protocols                      = ["TLSv1.2"]
-  override_origin_bucket_policy             = true
+  override_origin_bucket_policy             = false
   parent_zone_id                            = var.parent_zone_id
   parent_zone_name                          = var.parent_zone_name
   price_class                               = "PriceClass_100"
@@ -96,7 +96,7 @@ module "cdn" {
   s3_website_password_enabled               = false
   trusted_key_groups                        = []
   trusted_signers                           = []
-  versioning_enabled                        = true
+  bucket_versioning                         = "Enabled"
   viewer_protocol_policy                    = "redirect-to-https"
   wait_for_deployment                       = true
   web_acl_id                                = module.waf_context.enabled ? module.waf[0].web_acl_id : ""
