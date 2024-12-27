@@ -36,7 +36,7 @@ module "waf" {
 
   #  source  = "registry.terraform.io/trussworks/wafv2/aws"
   #  version = "4.0.0"
-  source = "git::https://github.com/SevenPico/terraform-aws-wafv2.git?ref=develop"
+  source = "git::https://github.com/SevenPico/terraform-aws-wafv2.git?ref=master"
 
   name = module.waf_context.enabled ? module.waf_context.id : "NA"
   tags = module.waf_context.enabled ? module.waf_context.tags : {}
@@ -61,5 +61,5 @@ module "waf" {
   ip_rate_url_based_rules = []
   ip_sets_rule            = []
   managed_rules           = var.managed_rules
-  scope = "CLOUDFRONT"
+  scope                   = "CLOUDFRONT"
 }
