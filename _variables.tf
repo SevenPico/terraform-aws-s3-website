@@ -148,3 +148,80 @@ variable "response_headers_policy_id" {
   default     = ""
   description = "Provide a CloudFront response headers policy id."
 }
+
+variable "managed_rules" {
+  type = list(object({
+    name            = string
+    priority        = number
+    override_action = string
+    vendor_name     = string
+    version         = optional(string)
+    rule_action_override = optional(list(object({
+      name          = string
+      action_to_use = string # e.g., "allow", "block", "count"
+    })), [])
+    scope_down_statement = optional(object({
+      ip_set_arn = optional(string)
+    }), null)
+  }))
+
+  description = "List of Managed WAF rules."
+  default = [
+    {
+      name                 = "AWSManagedRulesCommonRuleSet"
+      priority             = 10
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesAmazonIpReputationList"
+      priority             = 20
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesKnownBadInputsRuleSet"
+      priority             = 30
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesSQLiRuleSet"
+      priority             = 40
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesLinuxRuleSet"
+      priority             = 50
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesUnixRuleSet"
+      priority             = 60
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    },
+    {
+      name                 = "AWSManagedRulesAnonymousIpList"
+      priority             = 70
+      override_action      = "none"
+      vendor_name          = "AWS"
+      rule_action_override = []
+      scope_down_statement = null
+    }
+  ]
+}
